@@ -1,4 +1,4 @@
-package main.java.com.example.api.model;
+package com.example.api.model;
 
 import java.time.LocalDateTime;
 
@@ -7,4 +7,8 @@ public record User(
     String username,
     String email,
     String password,
-    LocalDateTime createdAt) {}
+    LocalDateTime createdAt) {
+        public User withId(Integer newId) {
+            return new User(newId, username, email, password, createdAt);
+        }
+    }
